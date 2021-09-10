@@ -14,9 +14,18 @@ def create_client(api_token: str = None) -> snyk.SnykClient:
 
 
 def main() -> None:
+    # Here is how you can fetch your orgs by the name of the group
+    # You can also use the group ID
     config = create_config()
     client = create_client(config["API_TOKEN"])
-    print(client.organizations.first().projects.all())
+    organizations = client.organizations.all()
+    orgs = []
+    for org in organizations:
+        if org.group is not None:
+            if org.group.name == "Pandánte, Inc.":
+                orgs.append(org)
+
+    print(orgs)
 
 
 if __name__ == "__main__":
