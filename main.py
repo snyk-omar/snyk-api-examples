@@ -19,5 +19,5 @@ def main() -> None:
     print(client.organizations.first().projects.all())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
