@@ -1,9 +1,10 @@
-from helpers.client import get_client
+from helpers.client import get_client, get_config
 
 
 def main() -> None:
     # ord id for the red js node org
-    project_id = "c2fc48a2-159a-4f1f-886f-54f4b77a0be6"
+    config = get_config()
+    project_id = config["PROJECT_ID"]
     client = get_client()
 
     project = client.projects.get(project_id)

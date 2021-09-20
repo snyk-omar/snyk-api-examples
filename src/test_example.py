@@ -1,10 +1,11 @@
-from helpers.client import get_client
+from helpers.client import get_client, get_config
 
 
 def main() -> None:
     client = get_client()
+    config = get_config()
     # Using the group ID GUID
-    group_id = "aaa10401-c024-4046-8bfa-3900bf988db8"
+    group_id = config["GROUP_ID"]
 
     # iterating through the list of orgs and adding my orgs to a list
     organizations = client.organizations.all()
